@@ -20,6 +20,10 @@ for li in li_tags:
 # Obtener el texto limpio de la noticia
 article_content = soup.find('div', class_='article-content')
 if article_content:
+    # Eliminar todas las etiquetas <em>
+    for em in article_content.find_all('em'):
+        em.decompose()
+        
     article_text = article_content.get_text(strip=True)
     print("Texto limpio de la noticia:")
     print(article_text)
