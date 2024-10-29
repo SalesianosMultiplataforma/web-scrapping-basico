@@ -24,6 +24,10 @@ if article_content:
     for em in article_content.find_all('em'):
         em.decompose()
         
+    # Eliminar el desvío
+    for desvio in article_content.find_all('div', class_='desvio'):
+        desvio.decompose()
+
     article_text = article_content.get_text(strip=True)
     print("Texto limpio de la noticia:")
     print(article_text)
